@@ -32,6 +32,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'bootstrap-sass', '3.2.0.2'
+gem 'autoprefixer-rails'
+gem 'bootstrap-material-design'
+
+
 group :development, :test do
   gem 'pry'
 

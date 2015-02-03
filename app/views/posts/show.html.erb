@@ -10,7 +10,21 @@
   <%= @post.body %>
 </p>
 
-<%= link_to 'Delete Post', user_post_path(@post.user_id, @post), method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to 'New Post', new_user_post_path(@user) %> |
-<%= link_to 'Users', users_path(@user) %> | 
-<%= link_to 'Back', :back %>
+
+
+<%= link_to user_post_path(@post.user_id, @post), method: :delete { confirm: "Are you sure?" }, class: 'btn btn-default' do %>
+<i class="glyphicon glyphicon"></i> Delete Post
+<% end %>
+
+<%= link_to new_user_post_path(@user), class: 'btn btn-default' do %>
+<i class="glyphicon glyphicon"></i> New Post
+<% end %> 
+
+<%= link_to users_path(@user), class: 'btn btn-default' do %>
+<i class="glyphicon glyphicon"></i> Users
+<% end %>
+
+
+<%= link_to :back, class: 'btn btn-default' do %>
+<i class="glyphicon glyphicon"></i> Back
+<% end %>
