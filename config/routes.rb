@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users do #, :only => [:index]
+  resources :users, :only => [:index, :show, :create, :new] do
     resources :posts
   end
 
