@@ -3,13 +3,16 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
-  def index
-    @posts = Post.all
+  def index    
+    @user = User.find(params[:user_id])
+    @posts = Post.where(user_id: params[:user_id])
+    binding.pry
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    binding.pry
     @post = Post.find(params[:id])
     respond_to do |format|
       format.html { render :show }
@@ -20,7 +23,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    binding.pry
     render :new
   end
 
@@ -34,7 +36,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post[:user_id] = params[:user_id]
+    @user = User.find(params[:user_id])
     respond_to do |format|
       if @post.save
         format.html { redirect_to user_post_url(@user, @post), notice: 'Post was successfully created.' }
@@ -78,6 +81,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post, :id).permit(:title, :body, :user_id)
     end
 end

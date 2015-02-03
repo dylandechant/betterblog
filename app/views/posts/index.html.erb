@@ -16,10 +16,14 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
+        <td><%= link_to 'Show', redirect_to: user_post_url(@user, post) %></td>
+        <td><%= link_to 'Edit', edit_user_post_path(@user, post) %></td>
+        <td><%# link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
 
