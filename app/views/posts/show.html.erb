@@ -9,3 +9,8 @@
   <strong>Body:</strong>
   <%= @post.body %>
 </p>
+
+<%= link_to 'Delete Post', user_post_path(@post.user_id, @post), method: :delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to 'New Post', new_user_post_path(@user) %> |
+<%= link_to 'Users', users_path(@user) %> | 
+<%= link_to 'Back', :back %>

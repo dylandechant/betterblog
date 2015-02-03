@@ -16,14 +16,15 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
-        <td><%= link_to 'Show', redirect_to: user_post_url(@user, post) %></td>
-        <td><%= link_to 'Edit', edit_user_post_path(@user, post) %></td>
-        <td><%# link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Post', user_post_path(@user, post.id) %> | </td>
+        <td><%= link_to 'Edit Post', edit_user_post_path(@user, post.id) %> | </td>
+        <td><%= link_to 'Delete Post', user_post_path(post.user_id, post), method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-
+<%= link_to 'New Post', new_user_post_path(@user) %> |
+<%= link_to 'Users', users_path(@user) %> | 
+<%= link_to 'Back', :back %>
