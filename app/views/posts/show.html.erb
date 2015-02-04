@@ -12,19 +12,21 @@
 
 
 
-<%= link_to user_post_path(@post.user_id, @post), method: :delete { confirm: "Are you sure?" }, class: 'btn btn-default' do %>
-<i class="glyphicon glyphicon"></i> Delete Post
+
+
+<%= link_to user_post_path(@post.user_id, @post), method: :delete, data: { confirm: "Are you sure?" }, class: 'glyphicon glyphicon-remove' do %>
+<i class="glyphicon glyphicon"></i>
 <% end %>
 
-<%= link_to new_user_post_path(@user), class: 'btn btn-default' do %>
-<i class="glyphicon glyphicon"></i> New Post
+<%= link_to new_user_post_path(@user), class: 'glyphicon glyphicon-comment' do %>
+<i class="glyphicon glyphicon"></i>
 <% end %> 
 
-<%= link_to users_path(@user), class: 'btn btn-default' do %>
-<i class="glyphicon glyphicon"></i> Users
+<%= link_to users_path(@user), class: 'glyphicon glyphicon-user' do %>
+<i class="glyphicon glyphicon"></i>
 <% end %>
 
 
-<%= link_to :back, class: 'btn btn-default' do %>
-<i class="glyphicon glyphicon"></i> Back
+<%= link_to :back, class: 'glyphicon glyphicon-arrow-left' do %>
+<i class="glyphicon glyphicon"></i>
 <% end %>
