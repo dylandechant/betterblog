@@ -3,6 +3,13 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+#home
+get '/' => 'home#index'
+
+#logins
+get "/log-in" => "sessions#new"
+post "/log-in" => "sessions#create"
+get "/log-out" => "sessions#destroy", as: :log_out
   #patch "users/:user_id/posts:id" => "posts#update", :as => "edit_users_post"
 
   # The priority is based upon order of creation: first created -> highest priority.
